@@ -1,0 +1,54 @@
+[gd_scene load_steps=2 format=3 uid="uid://cj0luk02jxn7m"]
+
+[ext_resource type="Script" path="res://scenes/main_scene.gd" id="1_wbc80"]
+
+[node name="MainScene" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1080.0
+offset_bottom = 720.0
+script = ExtResource("1_wbc80")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.768307, 0.768307, 0.768307, 1)
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 329.0
+offset_top = 343.0
+offset_right = 743.0
+offset_bottom = 473.0
+text = "Click me
+Ends game."
+
+[node name="Counter" type="Label" parent="."]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 29.0
+offset_right = 541.0
+offset_bottom = 180.0
+theme_override_font_sizes/font_size = 124
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameEnter" type="Label" parent="."]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 503.0
+offset_right = 575.0
+offset_bottom = 673.0
+theme_override_font_sizes/font_size = 124
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExpireTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="ExpireTimer" to="." method="_on_expire_timer_timeout"]
