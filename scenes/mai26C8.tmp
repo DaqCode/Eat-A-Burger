@@ -20,35 +20,43 @@ color = Color(0.768307, 0.768307, 0.768307, 1)
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 329.0
-offset_top = 343.0
-offset_right = 743.0
-offset_bottom = 473.0
+offset_left = 306.0
+offset_top = 479.0
+offset_right = 720.0
+offset_bottom = 564.0
 text = "Click me
 Ends game."
 
+[node name="HARD RESET" type="Button" parent="."]
+layout_mode = 0
+offset_right = 86.0
+offset_bottom = 51.0
+text = "RESTART 
+SIMULATION"
+
 [node name="Counter" type="Label" parent="."]
 layout_mode = 0
-offset_left = 18.0
-offset_top = 29.0
-offset_right = 541.0
-offset_bottom = 180.0
-theme_override_font_sizes/font_size = 124
+offset_left = 816.0
+offset_top = 2.0
+offset_right = 1080.0
+offset_bottom = 62.0
+theme_override_font_sizes/font_size = 29
+text = "Game is: 1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="GameEnter" type="Label" parent="."]
 layout_mode = 0
-offset_left = 52.0
-offset_top = 503.0
-offset_right = 575.0
-offset_bottom = 673.0
-theme_override_font_sizes/font_size = 124
-horizontal_alignment = 1
-vertical_alignment = 1
+offset_left = 26.0
+offset_top = 582.0
+offset_right = 1048.0
+offset_bottom = 710.0
+theme_override_font_sizes/font_size = 34
+text = "Pretend text exists here."
 
 [node name="ExpireTimer" type="Timer" parent="."]
 one_shot = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="HARD RESET" to="." method="_on_hard_reset_pressed"]
 [connection signal="timeout" from="ExpireTimer" to="." method="_on_expire_timer_timeout"]
