@@ -1,16 +1,23 @@
 extends Node
 
 var counter: int = 1
-const MAX_COUNT: int = 10
+const MAX_COUNT: int = 12
 
 const DAY_1 := preload("res://parts/day1.tscn")
 const DAY_2 := preload("res://parts/day2.tscn")
-const DAY_3 = preload("res://parts/day3.tscn")
-const DAY_4 = preload("res://parts/day4.tscn")
-const DAY_5 = preload("res://parts/day5.tscn")
+const DAY_3 := preload("res://parts/day3.tscn")
+const DAY_4 := preload("res://parts/day4.tscn")
+const DAY_5 := preload("res://parts/day5.tscn")
+const DAY_6 := preload("res://parts/day6.tscn")
+const DAY_7 := preload("res://parts/day7.tscn")
+const DAY_8 := preload("res://parts/day8.tscn")
+const DAY_9 := preload("res://parts/day9.tscn")
+const DAY_10 := preload("res://parts/day10.tscn")
+const DAY_11 := preload("res://parts/day11.tscn")
+const MAIN_MENU := preload("res://scenes/main_menu.tscn")
 
-func _ready() -> void:	
-	# Load the saved counter value
+
+func _ready() -> void:
 	if FileAccess.file_exists("user://counter.save"):
 		var file = FileAccess.open("user://counter.save", FileAccess.READ)
 		counter = file.get_32()
@@ -45,8 +52,18 @@ func get_scene_for_current_day() -> PackedScene:
 		return DAY_4
 	elif get_current_day() == 5:
 		return DAY_5
-	
-	#ADD SOME MORE
+	elif get_current_day() == 6:
+		return DAY_6
+	elif get_current_day() == 7:
+		return DAY_7
+	elif get_current_day() == 8:
+		return DAY_8
+	elif get_current_day() == 9:
+		return DAY_9
+	elif get_current_day() == 10:
+		return DAY_10
+	elif get_current_day() == 11:
+		return DAY_11
 	else:
-		return DAY_1
+		return MAIN_MENU
 

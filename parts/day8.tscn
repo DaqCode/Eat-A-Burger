@@ -1,13 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://jiik22yabkiw"]
+[gd_scene load_steps=2 format=3 uid="uid://xrm5mjlxloql"]
 
-[ext_resource type="Script" path="res://parts/day5.gd" id="1_05sno"]
+[ext_resource type="Script" path="res://parts/day8.gd" id="1_v07wx"]
 
-[node name="Day5" type="Control"]
+[node name="Day8" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1080.0
 offset_bottom = 720.0
-script = ExtResource("1_05sno")
+script = ExtResource("1_v07wx")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -16,7 +16,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.229593, 0.229593, 0.229593, 1)
+color = Color(0.768307, 0.768307, 0.768307, 1)
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
@@ -42,7 +42,8 @@ offset_top = 2.0
 offset_right = 1080.0
 offset_bottom = 62.0
 theme_override_font_sizes/font_size = 29
-text = "Game is: 5"
+text = "Game is: 8
+"
 horizontal_alignment = 1
 vertical_alignment = 1
 

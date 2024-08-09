@@ -1,7 +1,7 @@
 extends Control
 
 var bite_count: int = 0
-const MAX_BITES: int = 10
+const MAX_BITES: int = 11
 
 func _ready() -> void:
 	update_dialogue()
@@ -25,7 +25,8 @@ func update_dialogue() -> void:
 		"Daq: Well, considering that this is all you’re going to have, you can probably stop playing, or eating if anything.",
 		"...",
 		"...",
-		"Daq: Well, let’s see what you’ll be doing after this.",
+		"...",
+		"Well, let’s see what you’ll be doing after this.",
 		"...",
 		"That was a good burger."
 	]
