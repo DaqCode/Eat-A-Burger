@@ -1,9 +1,12 @@
 extends Control
 
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
 var bite_count: int = 0
 const MAX_BITES: int = 10
 
 func _ready() -> void:
+	animation_player.play("slowApppear")
 	update_dialogue()
 	$"Which game number".text = ("Game number: %s" % CounterManager.counter)
 
