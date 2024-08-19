@@ -1,4 +1,5 @@
 extends Control
+@onready var game_enter: RichTextLabel = %GameEnter
 
 var bite_count: int = 0
 const MAX_BITES: int = 11
@@ -30,7 +31,7 @@ func update_dialogue() -> void:
 		"...",
 		"That was a good burger."
 	]
-	$GameEnter.text = dialogues[bite_count]
+	game_enter.text = dialogues[bite_count]
 
 func _on_reset_pressed() -> void:
 	CounterManager.reset()

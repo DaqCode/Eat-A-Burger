@@ -1,0 +1,28 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://c4g72gck2md7j"]
+
+[ext_resource type="FontFile" uid="uid://n17e7hvahqrp" path="res://art/FivoSansModern-Bold.otf" id="1_a6gyk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1sdqs"]
+
+[resource]
+RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
+RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
+RichTextLabel/colors/font_selected_color = Color(0, 0, 0, 1)
+RichTextLabel/colors/font_shadow_color = Color(0, 0, 0, 1)
+RichTextLabel/colors/selection_color = Color(0, 0, 0, 1)
+RichTextLabel/colors/table_border = Color(0, 0, 0, 1)
+RichTextLabel/colors/table_even_row_bg = Color(0, 0, 0, 1)
+RichTextLabel/colors/table_odd_row_bg = Color(0, 0, 0, 1)
+RichTextLabel/constants/line_separation = 0
+RichTextLabel/constants/outline_size = 0
+RichTextLabel/constants/shadow_offset_x = 0
+RichTextLabel/constants/shadow_offset_y = 0
+RichTextLabel/constants/shadow_outline_size = 0
+RichTextLabel/constants/table_h_separation = 0
+RichTextLabel/constants/table_v_separation = 0
+RichTextLabel/constants/text_highlight_h_padding = 0
+RichTextLabel/constants/text_highlight_v_padding = 0
+RichTextLabel/font_sizes/normal_font_size = 18
+RichTextLabel/fonts/normal_font = ExtResource("1_a6gyk")
+RichTextLabel/styles/focus = null
+RichTextLabel/styles/normal = SubResource("StyleBoxFlat_1sdqs")

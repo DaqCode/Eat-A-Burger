@@ -1,17 +1,15 @@
+class_name MainMenu
 extends Control
 
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var play: Button = $VBoxContainer/Play
-@onready var extra_journals: Button = $VBoxContainer/ExtraJournals
-@onready var exit: Button = $VBoxContainer/Exit
+@onready var lights_flicker: AnimationPlayer = $LightsFlicker
+@onready var intro_animation: AnimationPlayer = $IntroAnimation
 
+@onready var play: Button = $ButtonContainer/Play
+@onready var exit: Button = $ButtonContainer/Exit
+@onready var extra_journals: Button = %ExtraJournals
 
-
-func _ready() -> void:
-	animation_player.play("mainMenuAnimation")
-	
-
-	
+func _on_ready() -> void:
+	intro_animation.play("mainMenuAnimation")
 
 
 func _on_play_pressed() -> void:
@@ -25,3 +23,10 @@ func _on_exit_pressed() -> void:
 
 func _on_extra_journals_pressed() -> void:
 	pass
+
+
+func _on_intro_animation_animation_finished(anim_name: StringName) -> void:
+	print("animation done")
+	lights_flicker.play("LightFlicker")
+	print("New animations playing")
+

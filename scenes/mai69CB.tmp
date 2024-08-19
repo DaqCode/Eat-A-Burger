@@ -8,6 +8,10 @@
 [ext_resource type="FontFile" uid="uid://bbaughyf62qg6" path="res://art/OddvalText-SemiBold.ttf" id="4_rr3ur"]
 [ext_resource type="Script" path="res://scenes/Mango.gd" id="4_ynnki"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s1wvm"]
+radius = 671.875
+height = 1343.75
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u0ac6"]
 bg_color = Color(0.218061, 0.218061, 0.218061, 1)
 border_width_left = 3
@@ -79,10 +83,6 @@ Label/constants/shadow_outline_size = 0
 Label/font_sizes/font_size = 68
 Label/fonts/font = ExtResource("4_rr3ur")
 Label/styles/normal = SubResource("StyleBoxEmpty_4a3qu")
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s1wvm"]
-radius = 563.83
-height = 1127.66
 
 [sub_resource type="Animation" id="Animation_xj73o"]
 length = 0.001
@@ -228,6 +228,20 @@ grow_vertical = 2
 texture = ExtResource("1_yjqij")
 metadata/_edit_use_anchors_ = true
 
+[node name="Mango" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+self_modulate = Color(0.24695, 0.24695, 0.24695, 1)
+position = Vector2(571, 550)
+scale = Vector2(0.064, 0.0755)
+texture = ExtResource("3_gu0ca")
+script = ExtResource("4_ynnki")
+
+[node name="MangoArea" type="Area2D" parent="Mango"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mango/MangoArea"]
+position = Vector2(-46.8729, 26.4893)
+shape = SubResource("CapsuleShape2D_s1wvm")
+
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(614, 668)
 rotation = 0.863938
@@ -272,20 +286,6 @@ layout_mode = 2
 theme = ExtResource("4_m200q")
 text = "Exit"
 
-[node name="Mango" type="Sprite2D" parent="."]
-unique_name_in_owner = true
-self_modulate = Color(0.24695, 0.24695, 0.24695, 1)
-position = Vector2(571, 550)
-scale = Vector2(0.08, 0.094)
-texture = ExtResource("3_gu0ca")
-script = ExtResource("4_ynnki")
-
-[node name="MangoArea" type="Area2D" parent="Mango"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Mango/MangoArea"]
-position = Vector2(0.00012207, -0.00012207)
-shape = SubResource("CapsuleShape2D_s1wvm")
-
 [node name="IntroAnimation" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_mxesc")
@@ -293,10 +293,13 @@ libraries = {
 autoplay = "mainMenuAnimation"
 
 [node name="LightsFlicker" type="AnimationPlayer" parent="."]
+process_priority = 1
 libraries = {
 "": SubResource("AnimationLibrary_qf602")
 }
 
+[connection signal="mouse_entered" from="Mango/MangoArea" to="Mango" method="_on_mango_area_mouse_entered"]
+[connection signal="mouse_exited" from="Mango/MangoArea" to="Mango" method="_on_mango_area_mouse_exited"]
 [connection signal="pressed" from="ButtonContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="ButtonContainer/ExtraJournals" to="." method="_on_extra_journals_pressed"]
 [connection signal="pressed" from="ButtonContainer/Exit" to="." method="_on_exit_pressed"]
