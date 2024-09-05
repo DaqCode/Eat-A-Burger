@@ -1,7 +1,46 @@
-[gd_scene load_steps=6 format=3 uid="uid://cj0luk02jxn7m"]
+[gd_scene load_steps=14 format=3 uid="uid://cj0luk02jxn7m"]
 
 [ext_resource type="Script" path="res://parts/day1.gd" id="1_x411c"]
 [ext_resource type="Theme" uid="uid://c4g72gck2md7j" path="res://parts/day_themes.tres" id="2_ndfdt"]
+[ext_resource type="Texture2D" uid="uid://bu8hui7l02637" path="res://art/MainMenuBackground.png" id="2_wypn5"]
+[ext_resource type="Texture2D" uid="uid://b4n2renuvr2co" path="res://art/60-604608_white-triangle-clipart-3273677046.png" id="3_5ex0n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5tjol"]
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_33bk0"]
+bg_color = Color(0.784314, 0.0823529, 0.164706, 0.890196)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.335116, 0.335116, 0.335116, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_23ijf"]
+bg_color = Color(0.784314, 0.0823529, 0.164706, 0.513726)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6dfa1"]
+bg_color = Color(0.254902, 0, 0, 0.913725)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_87chw"]
+Button/styles/disabled = SubResource("StyleBoxFlat_5tjol")
+Button/styles/focus = null
+Button/styles/hover = SubResource("StyleBoxFlat_33bk0")
+Button/styles/normal = SubResource("StyleBoxFlat_23ijf")
+Button/styles/pressed = SubResource("StyleBoxFlat_6dfa1")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ehk1k"]
+bg_color = Color(0.362077, 0.362077, 0.362077, 1)
 
 [sub_resource type="Animation" id="Animation_bepd7"]
 length = 0.001
@@ -65,10 +104,46 @@ tracks/4/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Button:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TextArea:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("PointLight2D:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_meaid"]
 resource_name = "slowApppear"
-length = 6.0
+length = 9.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -129,6 +204,42 @@ tracks/4/keys = {
 "update": 1,
 "values": [1, 0]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Button:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(4.5, 8.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TextArea:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(4.5, 8.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("PointLight2D:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(6.5, 6.66667, 6.96667, 7.13333, 7.5, 7.66667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false, true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dfwl3"]
 _data = {
@@ -143,21 +254,41 @@ offset_right = 1080.0
 offset_bottom = 720.0
 script = ExtResource("1_x411c")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
+modulate = Color(0.195067, 0.195067, 0.195067, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.768307, 0.768307, 0.768307, 1)
+texture = ExtResource("2_wypn5")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(628.159, 569.332)
+rotation = 0.759923
+scale = Vector2(1.20646, 1.39076)
+energy = 4.0
+texture = ExtResource("3_5ex0n")
 
 [node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_left = 306.0
-offset_top = 479.0
-offset_right = 720.0
-offset_bottom = 564.0
+visible = false
+light_mask = 2
+visibility_layer = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -207.0
+offset_top = 140.0
+offset_right = 207.0
+offset_bottom = 203.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_87chw")
 text = "Click me
 Ends game."
 
@@ -181,6 +312,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TextArea" type="Panel" parent="."]
+visible = false
+light_mask = 2
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -193,9 +326,11 @@ offset_right = 465.0
 offset_bottom = -17.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ehk1k")
 
 [node name="GameEnter" type="RichTextLabel" parent="TextArea"]
 unique_name_in_owner = true
+light_mask = 2
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -212,6 +347,7 @@ theme = ExtResource("2_ndfdt")
 text = "Pretend text exists here."
 
 [node name="PersonIcon" type="TextureRect" parent="TextArea"]
+light_mask = 2
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -243,16 +379,20 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="BackgroundContext"]
-anchors_preset = 5
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-offset_left = 1079.0
-offset_top = 115.0
-offset_right = 1450.0
-offset_bottom = 189.0
+anchor_bottom = 0.5
+offset_left = 539.0
+offset_top = -245.0
+offset_right = 910.0
+offset_bottom = -108.0
 grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 100
 text = "Day 1"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -263,12 +403,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_top = 286.0
-offset_right = 1080.0
-offset_bottom = 605.0
+offset_left = -540.0
+offset_top = -74.0
+offset_right = 540.0
+offset_bottom = 245.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "THIS IS SOME TEXT"
+theme_override_font_sizes/font_size = 100
+text = "	Tutorial"
 horizontal_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
