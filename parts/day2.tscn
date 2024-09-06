@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c1d5jcrvvif0v"]
 
 [ext_resource type="Script" path="res://parts/day2.gd" id="1_bxxul"]
-[ext_resource type="Theme" uid="uid://c4g72gck2md7j" path="res://parts/day_themes.tres" id="2_sqs4k"]
+[ext_resource type="Theme" uid="uid://c4g72gck2md7j" path="res://resources/day_themes.tres" id="2_sqs4k"]
 
 [node name="Day2" type="Control"]
 layout_mode = 3

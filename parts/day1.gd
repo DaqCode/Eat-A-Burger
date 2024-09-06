@@ -2,17 +2,19 @@ extends Control
 
 @onready var game_enter: RichTextLabel = %GameEnter
 
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var intro: AnimationPlayer = %IntroAnimation
+@onready var eating: AnimationPlayer = %EatingAnimation
 
 var bite_count: int = 0
 const MAX_BITES: int = 10
 
 func _ready() -> void:
-	animation_player.play("slowApppear")
+	intro.play("slowApppear")
 	update_dialogue()
 	$"Which game number".text = ("Game number: %s" % CounterManager.counter)
 
 func _on_button_pressed() -> void:
+	eating.play("EatingAnimation")
 	bite_count += 1
 	if bite_count >= MAX_BITES:
 		CounterManager.increment_counter()

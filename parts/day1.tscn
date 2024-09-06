@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://cj0luk02jxn7m"]
+[gd_scene load_steps=18 format=3 uid="uid://cj0luk02jxn7m"]
 
 [ext_resource type="Script" path="res://parts/day1.gd" id="1_x411c"]
-[ext_resource type="Theme" uid="uid://c4g72gck2md7j" path="res://parts/day_themes.tres" id="2_ndfdt"]
+[ext_resource type="Theme" uid="uid://c4g72gck2md7j" path="res://resources/day_themes.tres" id="2_ndfdt"]
 [ext_resource type="Texture2D" uid="uid://bu8hui7l02637" path="res://art/MainMenuBackground.png" id="2_wypn5"]
 [ext_resource type="Texture2D" uid="uid://b4n2renuvr2co" path="res://art/60-604608_white-triangle-clipart-3273677046.png" id="3_5ex0n"]
+[ext_resource type="AudioStream" uid="uid://d01gcmofmcdfi" path="res://audio/cheze.mp3" id="5_bxn6j"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5tjol"]
 bg_color = Color(0, 0, 0, 0)
@@ -247,6 +248,115 @@ _data = {
 "slowApppear": SubResource("Animation_meaid")
 }
 
+[sub_resource type="Animation" id="Animation_h8a5a"]
+resource_name = "EatingAnimation"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextArea:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.86667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationSounds/EatingSFX:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.233333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Button:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.83333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Button:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.83333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_nb4qk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextArea:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationSounds/EatingSFX:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Button:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Button:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2k2p3"]
+_data = {
+"EatingAnimation": SubResource("Animation_h8a5a"),
+"RESET": SubResource("Animation_nb4qk")
+}
+
 [node name="Day1" type="Control"]
 layout_mode = 3
 anchors_preset = 0
@@ -289,8 +399,9 @@ offset_bottom = 203.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_87chw")
-text = "Click me
-Ends game."
+disabled = true
+text = "Eat Burger
+"
 
 [node name="Reset" type="Button" parent="."]
 layout_mode = 0
@@ -346,16 +457,16 @@ grow_vertical = 2
 theme = ExtResource("2_ndfdt")
 text = "Pretend text exists here."
 
-[node name="PersonIcon" type="TextureRect" parent="TextArea"]
+[node name="PersonIcon" type="TextureRect" parent="TextArea/GameEnter"]
 light_mask = 2
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 8.0
-offset_top = -50.5
-offset_right = 107.0
-offset_bottom = 50.5
+offset_left = -108.0
+offset_top = -52.0
+offset_right = -9.0
+offset_bottom = 49.0
 grow_vertical = 2
 
 [node name="Which game number" type="RichTextLabel" parent="."]
@@ -413,10 +524,25 @@ theme_override_font_sizes/font_size = 100
 text = "	Tutorial"
 horizontal_alignment = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationSounds" type="Node" parent="."]
+
+[node name="IntroAnimation" type="AnimationPlayer" parent="AnimationSounds"]
+unique_name_in_owner = true
+root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_dfwl3")
 }
+
+[node name="EatingAnimation" type="AnimationPlayer" parent="AnimationSounds"]
+unique_name_in_owner = true
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_2k2p3")
+}
+
+[node name="EatingSFX" type="AudioStreamPlayer" parent="AnimationSounds"]
+stream = ExtResource("5_bxn6j")
+volume_db = -5.0
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Reset" to="." method="_on_reset_pressed"]
